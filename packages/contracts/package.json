@@ -1,0 +1,34 @@
+{
+  "name": "@mercato/contracts",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mercato API contracts: zod schemas, OpenAPI 3.1 generation, event contracts",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist tsconfig.build.tsbuildinfo",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "validate:openapi": "vitest run test/openapi-schema.test.ts"
+  },
+  "dependencies": {
+    "zod": "^4.6.7",
+    "zod-openapi": "^6.0.2",
+    "@mercato/shared-kernel": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5",
+    "@seriousme/openapi-schema-validator": "^2.11.0",
+    "@types/node": "^24.19.2"
+  }
+}

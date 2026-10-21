@@ -1,0 +1,31 @@
+{
+  "name": "@mercato/config",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Mercato runtime configuration: validated environment schema and typed config",
+  "license": "MIT",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    }
+  },
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "clean": "rm -rf dist tsconfig.build.tsbuildinfo",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "zod": "^4.6.7",
+    "@mercato/shared-kernel": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^6.0.3",
+    "vitest": "^5.0.5",
+    "@types/node": "^24.19.2"
+  }
+}

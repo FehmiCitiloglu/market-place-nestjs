@@ -1,0 +1,10 @@
+packages:
+  - 'apps/*'
+  - 'packages/*'
+
+# pnpm blocks dependency build scripts by default. Only esbuild is allowed:
+# it must download its native binary. Everything else (including the
+# @scarf/scarf telemetry postinstall) stays blocked on purpose.
+allowBuilds:
+  '@scarf/scarf': false
+  esbuild: true
