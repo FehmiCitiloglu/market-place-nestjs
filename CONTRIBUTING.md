@@ -39,7 +39,7 @@ Ports and credentials come from `.env` — see `.env.example` for placeholders. 
 
 ## Code style and hard rules
 
-1. **TypeScript 5.9 strict mode.** No `any` (including `as any`); no `@ts-ignore` without an inline justification comment. Use `unknown` + narrowing at boundaries.
+1. **TypeScript 6 strict mode.** No `any` (including `as any`); no `@ts-ignore` without an inline justification comment. Use `unknown` + narrowing at boundaries.
 2. **Business logic lives outside controllers.** Controllers parse/validate and delegate to application services; domain rules live in the owning module (see [docs/architecture/domain-boundaries.md](docs/architecture/domain-boundaries.md)).
 3. **Validate at every trust boundary.** All request bodies/queries/params go through zod schemas from `packages/contracts`; strict schemas — reject unknown fields. Clients can never set price, role, status, ownership, or totals.
 4. **Parameterized SQL only.** Never concatenate user input into SQL (Drizzle bound params; raw SQL always with placeholders). This is a security rule, not a style preference.
